@@ -71,6 +71,12 @@ import UIKit
         }
     }
     
+    @IBInspectable public var rightViewWidth: CGFloat = 0 {
+        didSet {
+            self.addRightViewBox()
+        }
+    }
+    
     @IBInspectable public var placeholderColor: UIColor = UIColor.gray {
         didSet {
             self.setPlaceholderColor()
@@ -101,6 +107,12 @@ import UIKit
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.leftViewWidth, height: self.frame.height))
         self.leftView = paddingView
         self.leftViewMode = .always
+    }
+    
+    public func addRightViewBox() {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: self.rightViewWidth, height: self.frame.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
     }
     
     public func setPlaceholderColor() {
